@@ -103,13 +103,6 @@ class Doctor implements IdAwareInterface    //src/Partial/IdAwareInterface.php
         return $this->visits;
     }
 
-    /**
-     * @param Visit[]|Collection $visits
-     */
-    public function setVisits($visits): void
-    {
-        $this->visits = $visits;
-    }
 
     public function __toString():string
     {
