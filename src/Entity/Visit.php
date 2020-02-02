@@ -106,6 +106,11 @@ class Visit implements IdAwareInterface
         $this->patient = $patient;
     }
 
+    public function __toString()
+    {
+        return $this->startDate->format('Y-m-d h:i').' '.$this->endDate->format('Y-m-d h:i').' '.$this->patient->__toString();
+    }
+
 
 
 

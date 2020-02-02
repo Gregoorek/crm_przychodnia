@@ -17,7 +17,7 @@ easy_admin:
             search:
                 fields: ['firstName', 'lastName', 'Specjalization.name']
             show:
-                fields: ['firstName', 'lastName', 'Specjalization']
+                fields: ['firstName', 'lastName', 'Specjalization', {label: 'Wizyta', property: 'visits'}]
 
         Visit:
             label: 'Wizyta'

@@ -44,6 +44,4 @@ class Specjalization implements IdAwareInterface
     {
         return $this->name;
     }
-
-
 }

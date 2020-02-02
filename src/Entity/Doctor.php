@@ -38,7 +38,7 @@ class Doctor implements IdAwareInterface    //src/Partial/IdAwareInterface.php
     private $Specjalization;
 
     /**
-     * @ORM\OneToMany(targetEntity='App\Entity\Visit", mappedBy="doctor")
+     * @ORM\OneToMany(targetEntity="App\Entity\Visit", mappedBy="doctor")
      * @var Visit[]|Collection
      */
     private $visits;
@@ -103,6 +103,13 @@ class Doctor implements IdAwareInterface    //src/Partial/IdAwareInterface.php
         return $this->visits;
     }
 
+    /**
+     * @param Visit[]|Collection $visits
+     */
+    public function setVisits($visits): void
+    {
+        $this->visits = $visits;
+    }
 
     public function __toString():string
     {
