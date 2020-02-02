@@ -17,7 +17,8 @@ easy_admin:
             search:
                 fields: ['firstName', 'lastName', 'Specjalization.name']
             show:
-                fields: ['firstName', 'lastName', 'Specjalization', {label: 'Wizyta', property: 'visits'}]
+                fields: ['firstName', 'lastName', 'Specjalization',
+                         {label: 'Wizyta', property: 'visits', template: 'admin/visits.html.twig'}]
 
         Visit:
             label: 'Wizyta'

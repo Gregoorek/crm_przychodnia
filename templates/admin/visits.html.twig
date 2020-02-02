@@ -1,0 +1,25 @@
+<table class="table" xmlns="http://www.w3.org/1999/html">
+
+    <thead>
+        <tr>
+            <th></th>
+            <th>start wizyty</th>
+            <th>pacjent</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for key,visit in value %}
+        <tr>
+            <td>{{ key }}</td>
+            <td>{{visit.startDate | date}}</td>
+            <td>{{visit.patient.firstName}}{{ visit.patient.lastName }}</td>
+        </tr>
+
+
+    {% endfor %}
+
+    </tbody>
+
+
+</table>
+
