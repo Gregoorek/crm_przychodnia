@@ -15,9 +15,11 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity()
  */
 
-class Doctor implements IdAwareInterface    //src/Partial/IdAwareInterface.php
+//dodajemy klase z markera user do pacjenta extend
+
+class Doctor extends User //implements IdAwareInterface    //src/Partial/IdAwareInterface.php
 {
-    use IdAwareTrait;                    //src/Partial/IdAwareTrait.php
+   // use IdAwareTrait;                    //src/Partial/IdAwareTrait.php
 
     /**
      * @var string

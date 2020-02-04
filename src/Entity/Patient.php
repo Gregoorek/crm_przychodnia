@@ -12,9 +12,12 @@ use Doctrine\ORM\Mapping as ORM;
  * @package App\Entity
  * @ORM\Entity()
  */
-class Patient implements IdAwareInterface
+
+//dodajemy klase z markera user do pacjenta extend
+
+class Patient extends User //implements IdAwareInterface
 {
-    use IdAwareTrait;
+    //use IdAwareTrait;
 
 
     /**
