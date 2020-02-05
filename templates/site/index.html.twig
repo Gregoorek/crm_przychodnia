@@ -1,0 +1,30 @@
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block title %}Hello SiteController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+
+    {% for label, message in app.flashes %}
+        {% for message in message %}
+            <div class="flash-{{ label }}">
+                {{ message }}
+            </div>
+    {% endfor %}
+    {% endfor %}
+
+    <h1>Witamy w naszej przychodni</h1>
+
+    <form method="get" action="{{ path('app_login') }}">
+        <div class="form-group field-button">
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Zaloguj sie </button>
+        </div>
+
+    </form>
+</div>
+{% endblock %}

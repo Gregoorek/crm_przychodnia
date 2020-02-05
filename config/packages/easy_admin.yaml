@@ -1,4 +1,6 @@
 easy_admin:
+    user:
+        name_property_path: email
     site_name: 'Przychodnia'
     formats:
         datetime: 'd/m/Y H:i'
