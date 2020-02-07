@@ -1,6 +1,6 @@
 {% extends '@EasyAdmin/page/content.html.twig' %}
 
-{% block title %}Hello SiteController!{% endblock %}
+{% block title %}Przychodnia{% endblock %}
 
 {% block body %}
 <style>
@@ -20,15 +20,46 @@
 
     <h1>Witamy w naszej przychodni</h1>
 
-    <form method="get" action="{{ path('app_login') }}">
+
+
+    {# sprawdzenie czy jest ktos zalogowany  #}
+
+    {%  if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <form method="get" action="{{ path('add') }}">
+            <div class="form-group field-button">
+                <button type="submit" class="btn btn-success btn-lg btn-block">Ustal Wizyte </button>
+            </div>
+        </form>
+
+        <form method="get" action="{{ path('list_visit') }}">
+            <div class="form-group field-button">
+                <button type="submit" class="btn btn-success btn-lg btn-block">Zobacz obecne wizyty </button>
+            </div>
+        </form>
+
+        <form method="get" action="{{ path('app_logout') }}">
+            <div class="form-group field-button">
+                <button type="submit" class="btn btn-success btn-lg btn-block">Wyloguj </button>
+            </div>
+        </form>
+
+
+    {%  else %}
+
+
+       <form method="get" action="{{ path('app_login') }}">
         <div class="form-group field-button">
             <button type="submit" class="btn btn-primary btn-lg btn-block">Zaloguj sie </button>
         </div>
     </form>
-    <form method="get" action="{{ path('app_register') }}">
-        <div class="form-group field-button">
-            <button type="submit" class="btn btn-success btn-lg btn-block">Rejestracja </button>
-        </div>
-    </form>
+
+        <form method="get" action="{{ path('app_register') }}">
+            <div class="form-group field-button">
+                <button type="submit" class="btn btn-success btn-lg btn-block">Rejestracja </button>
+            </div>
+        </form>
+    {% endif %}
+
+
 </div>
 {% endblock %}

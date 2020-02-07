@@ -3,12 +3,12 @@
 {% trans_default_domain easyadmin_config('translation_domain') %}
 {% extends easyadmin_config('design.templates.layout') %}
 
+{% block title %}Przychodnia{% endblock %}
+
 {% block body_class 'page-login' %}
 
 {% block wrapper_wrapper %}
-    {% set _username_label = username_label is defined ? username_label|trans : 'login.username'|trans({}, 'EasyAdminBundle') %}
-    {% set _password_label = password_label is defined ? password_label|trans : 'login.password'|trans({}, 'EasyAdminBundle') %}
-    {% set _sign_in_label = sign_in_label is defined ? sign_in_label|trans : 'login.sign_in'|trans({}, 'EasyAdminBundle') %}
+
 
     <div class="login-wrapper">
         <header class="main-header mb-4">
@@ -28,18 +28,17 @@
         {% endif %}
 
         <section class="content">
-            {{ form_start(registrationForm) }}
-                {{ form_row(registrationForm.firstName) }}
-                {{ form_row(registrationForm.lastName) }}
-                {{ form_row(registrationForm.email) }}
-                {{ form_row(registrationForm.plainPassword) }}
+            {{ form_start(visitForm) }}
+                {{ form_row(visitForm.startDate) }}
+                {{ form_row(visitForm.doctor) }}
+
 
                 <div class="form-group field-button">
                     <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="this.form.submit(); this.disabled=true;">Rejestracja</button>
                 </div>
 
 
-            {{ form_end(registrationForm) }}
+            {{ form_end(visitForm) }}
 
 
         </section>
