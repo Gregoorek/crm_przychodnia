@@ -24,10 +24,42 @@ class VisitRepository extends ServiceEntityRepository {
             'patient'=> $patient
         ]);
     }
+//zapytanie do wysylania powiadomienia
 
-    
-  
-    
+    /**
+     * @param \DateTime $dateTimeNow
+     * @return Visit[]
+     * @throws \Exception
+     */
+    public function findNextVisit(\DateTime $dateTimeNow): array
+    {
+        $startDate = clone $dateTimeNow;
+        $startDate->add(new \DateInterval('P1D'));
 
+        $endDate = clone $startDate;
+        $endDate->add(new \DateInterval('P20D'));   //zmienic na PT8H zeby tylko z jednego dnia powiadomienia
 
+       /* $qb = $this->createQueryBuilder('visit');
+        $qb->where('visit.startDate > :startDate')
+            ->andWhere('visit.startDate <= :endDate')
+            ->setParameter('startDate', $startDate)
+            ->setParameter('endDate', $endDate);
+
+        //przetestowanie zapytnia
+        //SELECT visit FROM App\Entity\Visit visit WHERE visits.startDate > :startDate AND visit.startDate <= :endDate
+        //var_dump($qb->getQuery()->getDQL());
+
+        $query = $qb->getQuery();
+
+        return $query->getResult(); */
+
+      return $this->createQueryBuilder('visit')
+            ->andWhere('visit.startDate > :startDate')
+            ->andWhere('visit.startDate <= :endDate')
+            ->setParameter('startDate', $startDate)
+            ->setParameter('endDate', $endDate)
+            ->getQuery()
+            ->getResult();
+
+    }
 }
