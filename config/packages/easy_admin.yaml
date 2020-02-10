@@ -14,39 +14,39 @@ easy_admin:
 
     entities:
         Doctor:
-            label: 'Lekarze'
+            translation_domain: doctor
             class:  App\Entity\Doctor
             search:
                 fields: ['firstName', 'lastName', 'Specjalization.name']
             show:
                 fields: ['firstName', 'lastName', 'Specjalization',
-                         {label: 'Wizyta', property: 'visits', template: 'admin/visits.html.twig'}]
+                         {property: 'visits', template: 'admin/visits.html.twig'}]
 
         Visit:
-            label: 'Wizyta'
+
             class:  App\Entity\Visit
 
 
         Specjalization:
-            label: 'Specjalizacja'
+
             class: App\Entity\Specjalization
 
         Patient:
-            label: 'Pacjeci'
+
             class: App\Entity\Patient
             show:
                 fields:
-                    - {label: 'Imie', property: 'firstName'}
-                    - {label: 'Nazwisko', property: 'lastName'}
+                    - {property: 'firstName'}
+                    - {property: 'lastName'}
             edit:
                 fields:
-                    - {label: 'Imie', property: 'firstName'}
-                    - {label: 'Nazwisko', property: 'lastName'}
+                    - { property: 'firstName'}
+                    - { property: 'lastName'}
             list:
                 fields:
-                    - {label: 'ID', property: 'id'}
-                    - {label: 'Imie', property: 'firstName'}
-                    - {label: 'Nazwisko', property: 'lastName'}
+                    - {property: 'id'}
+                    - {property: 'firstName'}
+                    - {property: 'lastName'}
 
 
     list:
