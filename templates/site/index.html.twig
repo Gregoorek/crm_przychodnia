@@ -1,14 +1,14 @@
-{% extends '@EasyAdmin/page/content.html.twig' %}
-
+{#{% extends '@EasyAdmin/page/content.html.twig' %}#}
+{% extends 'base.html.twig' %}
 {% block title %}Przychodnia{% endblock %}
 
 {% block body %}
 <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .example-wrapper code  { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<div class="example-wrapper">
+<div class="container border" >
 
     {% for label, message in app.flashes %}
         {% for message in message %}
@@ -18,7 +18,7 @@
     {% endfor %}
     {% endfor %}
 
-    <h1>Witamy w naszej przychodni</h1>
+    <h1 class="text-center">Witamy w naszej przychodni</h1>
 
 
 
@@ -26,7 +26,7 @@
 
     {%  if is_granted('IS_AUTHENTICATED_FULLY') %}
         <form method="get" action="{{ path('add') }}">
-            <div class="form-group field-button">
+            <div class="form-group field-button ">
                 <button type="submit" class="btn btn-success btn-lg btn-block">Ustal Wizyte </button>
             </div>
         </form>
@@ -54,7 +54,7 @@
     </form>
 
         <form method="get" action="{{ path('app_register') }}">
-            <div class="form-group field-button">
+            <div class="form-group field-button ">
                 <button type="submit" class="btn btn-success btn-lg btn-block">Rejestracja </button>
             </div>
         </form>

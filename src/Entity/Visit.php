@@ -6,11 +6,15 @@ namespace App\Entity;
 use App\Partial\IdAwareInterface;
 use App\Partial\IdAwareTrait;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\UniqueConstraint;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Class Visit
  * @package App\Entity
+ * @UniqueEntity(fields={"startDate", "doctor"}, message="Termin juz zarezerwowany. Prosze ustalić wizyte w innym terminie.")
  * @ORM\Entity()
+ * @ORM\Table(uniqueConstraints={@UniqueConstraint(columns={"start_Date", "doctor_id" })})
  */
 class Visit implements IdAwareInterface
 {
